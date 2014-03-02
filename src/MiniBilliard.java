@@ -3,6 +3,10 @@ import ea.*;
 /**
  * Diese Klasse soll ein einfaches Billiard/Spiel implementieren,
  * um eine Demo der EA/Physik zu geben.
+ * <br /><br />
+ * Für mehr Informationen zur Physik, empfiehlt es sich,
+ * die <b>Dokumentation</b> und den <a href="http://engine-alpha.org/wiki">Wiki</a>
+ * zu konsultieren.
  * @author Michael Andonie
  *
  */
@@ -37,7 +41,7 @@ extends Game {
 		Kreis k11 = new Kreis(310, 204, 20);
 		
 		//Erstelle das Spielfeld
-		Rechteck wandlinks = new Rechteck(0,0, 10, 500);
+		Rechteck wandlinks = new Rechteck(-20,0, 10, 520);
 		Rechteck wandrechts = new Rechteck(490,0, 10, 500);
 		Rechteck wandoben = new Rechteck(0,0, 500, 10);
 		Rechteck wandunten = new Rechteck(0,340, 500, 10);
@@ -54,12 +58,12 @@ extends Game {
 		k8.farbeSetzen("Pink");
 		k9.farbeSetzen("Lila");
 		k10.farbeSetzen("Hellgrau");
-		k11.farbeSetzen("Dunkelgrau");
+		k11.farbeSetzen("Orange");
 		
-		wandlinks.farbeSetzen("Rot");
-		wandrechts.farbeSetzen("Rot");
-		wandoben.farbeSetzen("Rot");
-		wandunten.farbeSetzen("Rot");
+		wandlinks.farbeSetzen("Dunkelgrau");
+		wandrechts.farbeSetzen("Dunkelgrau");
+		wandoben.farbeSetzen("Dunkelgrau");
+		wandunten.farbeSetzen("Dunkelgrau");
 		
 		untergrund.farbeSetzen("Gruen");
 		
@@ -73,6 +77,7 @@ extends Game {
 			//Physik-Verwenden
 		
 		//Bringe alle Objekte in Physik-Modus
+		//weisse.setzeMeterProPixel(1/());
 		weisse.newtonschMachen();
 		k2.newtonschMachen();
 		k3.newtonschMachen();
@@ -90,33 +95,40 @@ extends Game {
 		wandunten.newtonschMachen();
 		wandrechts.newtonschMachen();
 		
-		//Markiere alle Wände als nicht beeinflussbar
-			//(Kugeln müssen nicht explizit als beeinflussbar markiert werden
+		//Markiere alle Wände als nicht beeinflussbar (=> andere Objekte prallen daran ab,
+		//ohne dass sie davon bewegt werden.)
+			//(Die Kugeln müssen nicht explizit als beeinflussbar markiert werden
 			//-> das ist als Engine-Standard bereits eingestellt.)
 		wandlinks.beeinflussbarSetzen(false);
 		wandrechts.beeinflussbarSetzen(false);
 		wandoben.beeinflussbarSetzen(false);
 		wandunten.beeinflussbarSetzen(false);
 		
+		//weisse.kraftSetzen(new Vektor(0, 9.81f));
 	}
 	
+	/**
+	 * In der Taste-Reagieren-Methode wird die Tastatureingabe verarbeitet:<br />
+	 * Bei Pfeiltasten-Druck bekommt die Weisse Kugel einen (zusätzlichen) Impuls
+	 * von 20 kg*m/s
+	 */
 	@Override
 	public void tasteReagieren(int code) {
 		switch(code) {
 		case 29: //Links
-			weisse.impulsHinzunehmen(new Vektor(-40, 0));
+			weisse.impulsHinzunehmen(new Vektor(-20, 0));
 			break;
 		case 27: //Rechts
-			weisse.impulsHinzunehmen(new Vektor(40, 0));
+			weisse.impulsHinzunehmen(new Vektor(20, 0));
 			break;
 		case 28: //Down
-			weisse.impulsHinzunehmen(new Vektor(0, 40));
+			weisse.impulsHinzunehmen(new Vektor(0, 20));
 			break;
 		case 26: //Down
-			weisse.impulsHinzunehmen(new Vektor(0, -40));
+			weisse.impulsHinzunehmen(new Vektor(0, -20));
 			break;
 		case 30: //Leertaste
-
+			//
 			break;
 		}
 	}
