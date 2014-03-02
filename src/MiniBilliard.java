@@ -14,7 +14,8 @@ public class MiniBilliard
 extends Game {
 
 	/**
-	 * Die weisse Kugel
+	 * Die weisse Kugel. Externe Referenz, damit sie in der
+	 * tasteReagieren - Methode zur Verfügung steht.
 	 */
 	private Kreis weisse;
 	
@@ -111,6 +112,7 @@ extends Game {
 	 * In der Taste-Reagieren-Methode wird die Tastatureingabe verarbeitet:<br />
 	 * Bei Pfeiltasten-Druck bekommt die Weisse Kugel einen (zusätzlichen) Impuls
 	 * von 20 kg*m/s
+	 * @param	code	Der Tastencode der gedrückten Taste.
 	 */
 	@Override
 	public void tasteReagieren(int code) {
@@ -133,6 +135,10 @@ extends Game {
 		}
 	}
 	
+	/**
+	 * Die Main-Methode startet einfach ein Billiard-Spiel.
+	 * @param args	Die Command-Line-Argumente. Absolut irrelevant für uns.
+	 */
 	public static void main(String[] args) {
 		new MiniBilliard();
 	}
