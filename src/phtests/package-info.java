@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author Samsung
- *
- */
-package phtests;

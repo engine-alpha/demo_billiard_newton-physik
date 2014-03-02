@@ -1,0 +1,8 @@
+/bin
+/src/ea/test
+/src/ea/example
+/out
+*.ipr
+*.iws
+*.iml
+/doc
