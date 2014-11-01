@@ -105,6 +105,24 @@ extends Game {
 		wandoben.beeinflussbarSetzen(false);
 		wandunten.beeinflussbarSetzen(false);
 		
+		//Sorge für vollständige Geschwindigkeitserhaltung
+		//weisse.kollisionsPufferSetzen(0);
+		//k2.kollisionsPufferSetzen(0);
+		//k3.kollisionsPufferSetzen(0);
+		//k4.kollisionsPufferSetzen(0);
+		//k5.kollisionsPufferSetzen(0);
+		//k6.kollisionsPufferSetzen(0);
+		//k7.kollisionsPufferSetzen(0);
+		//k8.kollisionsPufferSetzen(0);
+		//k9.kollisionsPufferSetzen(0);
+		//k10.kollisionsPufferSetzen(0);
+		//k11.kollisionsPufferSetzen(0);
+		
+		//wandlinks.kollisionsPufferSetzen(0);
+		//wandoben.kollisionsPufferSetzen(0);
+		//wandunten.kollisionsPufferSetzen(0);
+		//wandrechts.kollisionsPufferSetzen(0);
+		
 		//weisse.kraftSetzen(new Vektor(0, 9.81f));
 	}
 	
